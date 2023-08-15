@@ -1,5 +1,5 @@
 #include <stdio.h>
-#include <math.h>// 
+#include <math.h>// 1
 
 int equation(int a, int b, int c); //функция, решающая квадратное уравнение
 int main()
