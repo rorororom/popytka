@@ -1,14 +1,21 @@
 #include <stdio.h>
 #include <math.h>
+#define EPS 0.000001
 
 int equation(int a, int b, int c); //функция, решающая квадратное уравнение
+
+
 int main()
 {
-    float a,b,c; //вводим коэффициенты уравнения с учетом знака
-    scanf("%f%f%f", &a, &b, &c);
-    equation(a,b,c);
+    float a=0,b=0,c=0; //выводим коэффициенты уравнения с учетом знака
+    if ( (scanf("%f",&a) ) != 1 || (scanf("%f",&b) ) != 1 || (scanf("%f",&c) ) != 1)
+        printf("Неверное введенное значение");
+    else
+        equation(a,b,c);
 
 }
+
+
 int  equation(int a, int b, int c)
 {
     float discriminant;
@@ -23,7 +30,7 @@ int  equation(int a, int b, int c)
             printf("x1 = %f \n", x1);
             printf("x2 = %f \n", x2);
         }
-        else if (discriminant == 0) // если дискриминант равен 0, то одно решение
+        else if (abs(discriminant - 0) < EPS) // если дискриминант равен 0, то одно решение
         {
             x1 = (-b + sqrt(discriminant)) / (2 * a);
             printf("x1 = %f \n", x1);
