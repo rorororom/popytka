@@ -1,67 +1,64 @@
 #include <stdio.h>
 #include <math.h>
+
 #define EPS 0.000001
 
-int equation(int a, int b, int c); //функция, решающая квадратное уравнение
+
+int comparison0(int a); // проверка числа на равенство 0
+int proverka_na_kolvo_korney(int a, int b, int c);
+void chitaem_2_kornya(float *x1, float *x2, int a, int b, int c);
+void chitaem_1_koren(float *x1, int a, int b, int c);
 
 
-int main()
-{
-    float a=0,b=0,c=0; //выводим коэффициенты уравнения с учетом знака
-    if ( (scanf("%f",&a) ) != 1 || (scanf("%f",&b) ) != 1 || (scanf("%f",&c) ) != 1)
+int main() {
+    float a = 0, b = 0, c = 0, x1 = 0, x2 = 0;
+    if ((scanf("%f", &a)) != 1 || (scanf("%f", &b)) != 1 || (scanf("%f", &c)) != 1) // проверка на правильность ввода
         printf("Неверное введенное значение");
-    else
-        equation(a,b,c);
-
+    else // если корректный ввод, то переходит к решению уравнения
+    {
+        if (comparison0(a) == 0) // если а не 0
+        {
+            if (proverka_na_kolvo_korney(a, b, c) == 2) {
+                chitaem_2_kornya(&x1, &x2, a, b, c);
+                printf("x1 = %f, x2 = %f\n", x1, x2);
+            } else if (proverka_na_kolvo_korney(a, b, c) == 0)
+                printf("корней нет");
+            else {
+                chitaem_1_koren(&x1, a, b, c);
+                printf("x1 = %f\n", x1);
+            }
+        } else
+            printf("это не квадратное уравнение");
+    }
 }
 
 
-int  equation(int a, int b, int c)
-{
+int comparison0(int a) {
+    if (abs(a - 0) < EPS) // если число равно 0, то выводим истину
+        return 1;
+    return 0; // иначе ложь
+}
+
+
+int proverka_na_kolvo_korney(int a, int b, int c) {
     float discriminant;
-    float x1, x2;
-    if (a != 0 && b != 0 && c != 0)
-    {
-        discriminant = b * b - 4 * a * c; // считаем дискриминант
-        if (discriminant > 0) // если дискриминант больше 0, то уравнение имеет 2 решения
-        {
-            x1 = (-b + sqrt(discriminant)) / (2 * a);
-            x2 = (-b - sqrt(discriminant)) / (2 * a);
-            printf("x1 = %f \n", x1);
-            printf("x2 = %f \n", x2);
-        }
-        else if (abs(discriminant - 0) < EPS) // если дискриминант равен 0, то одно решение
-        {
-            x1 = (-b + sqrt(discriminant)) / (2 * a);
-            printf("x1 = %f \n", x1);
-        }
-        else // иначе корни комплексные
-            printf("%s\n", "корней (не комплексных) нет");
-    }
-    else if (a != 0)
-    {
-        if (c == 0 && b == 0) // если коэффициенты c и b равны 0, то корень 0
-            printf("%d", 0);
-        else if ( b == 0)
-        {
-            if (a * c > 0) // если коэффициенты a и c одного знака, то корней нет
-                printf("%s", "корней нет");
-            else
-            {
-                x1 = sqrt(-c / a);
-                x2 = -sqrt(-c / a);
-                printf("x1 = %f \n", x1);
-                printf("x2 = %f \n", x2);
-            }
-        }
-        else // если только c = 0, то считаем корень)))
-        {
-            x1 = 0;
-            x2 = -b /a;
-            printf("x1 = %f \n", x1);
-            printf("x2 = %f \n", x2);
-        }
-    }
-    else
-        printf("%s", "это не квадратное уравнение");
+    discriminant = b * b - 4 * a * c; // считаем дискриминант
+    if (discriminant > 0) // если дискриминант больше 0
+        return 2;
+    else if (comparison0(discriminant) == 1) // если дискриминант 0
+        return 1;
+    return 0;
+}
+
+
+void chitaem_2_kornya(float *x1, float *x2, int a, int b, int c) {
+    float discriminant = b * b - 4 * a * c;
+    *x1 = (-b + sqrt(discriminant)) / (2 * a);
+    *x2 = (-b - sqrt(discriminant)) / (2 * a);
+}
+
+
+void chitaem_1_koren(float *x1, int a, int b, int c) {
+    float discriminant = b * b - 4 * a * c;
+    *x1 = (-b + sqrt(discriminant)) / (2 * a);
 }
