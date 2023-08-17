@@ -2,7 +2,13 @@
 #include <math.h>
 
 #define EPS 0.000001
-#define ENUM 100500
+enum root{
+    NO_ROOTS,
+    ONE_ROOTS,
+    TWO_ROOTS,
+    INFINITY_ROOTS
+};
+
 
 int comparison0(int a); // проверка числа на равенство 0
 int solve_the_equation(float a, float b, float c, float *x1, float *x2);
@@ -16,9 +22,9 @@ int main()
     else // если корректный ввод, то переходит к решению уравнения
     {
         int number_of_roots = solve_the_equation(a,b,c, &x1, &x2); // запускаем функцию, считающую кол-во корней
-        if (number_of_roots == 2) printf("x1 = %f, x2 = %f\n", x1, x2); //если 2 корня
-        else if (number_of_roots == 1) printf("x1 = %f\n", x1); // если 1 корень
-        else if (number_of_roots == 0) printf("корней нет"); // если 0 корней
+        if (number_of_roots == TWO_ROOTS) printf("x1 = %f, x2 = %f\n", x1, x2); //если 2 корня
+        else if (number_of_roots == ONE_ROOTS) printf("x1 = %f\n", x1); // если 1 корень
+        else if (number_of_roots == NO_ROOTS) printf("корней нет"); // если 0 корней
         else printf("бесконечное кол-во корней");
     }
 }
@@ -40,14 +46,14 @@ int solve_the_equation(float a, float b, float c, float *x1, float *x2)
         {
             *x1 = (-b + sqrt(discriminant)) / (2 * a);
             *x2 = (-b - sqrt(discriminant)) / (2 * a);
-            return 2;
+            return TWO_ROOTS;
         }
         else if (comparison0(discriminant) == 1) // если дискриминант 0
         {
             *x1 = -b / (2 * a);
-            return 1;
+            return ONE_ROOTS;
         }
-        return 0;
+        return NO_ROOTS;
     }
     else return solve_linear_r_the_equation(b, c, x1); // случай, если а = 0
 }
@@ -55,12 +61,12 @@ int solve_the_equation(float a, float b, float c, float *x1, float *x2)
 
 int solve_linear_r_the_equation(float b, float c, float *x1)
 {
-    if (comparison0(b) == 1 && comparison0(c) == 1) return ENUM;
-    else if(comparison0(b) == 1) return 0;
+    if (comparison0(b) == 1 && comparison0(c) == 1) return INFINITY_ROOTS;
+    else if(comparison0(b) == 1) return NO_ROOTS;
     else
     {
         *x1 = -c / b;
-        return 1;
+        return ONE_ROOTS;
     }
 }
 
