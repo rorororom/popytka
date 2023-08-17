@@ -11,7 +11,7 @@ int solve_linear_r_the_equation(float b, float c, float *x1);
 int main()
 {
     float a = 0, b = 0, c = 0, x1 = 0, x2 = 0;
-    if ((scanf("%f%f%f", &a, &b, &c)) != 1) // проверка на правильность ввода
+    if ((scanf("%f%f%f", &a, &b, &c)) != 3) // проверка на правильность ввода
         printf("Неверное введенное значение");
     else // если корректный ввод, то переходит к решению уравнения
     {
