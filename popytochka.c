@@ -5,9 +5,7 @@
 
 
 int comparison0(int a); // проверка числа на равенство 0
-int proverka_na_kolvo_korney(int a, int b, int c);
-void chitaem_2_kornya(float *x1, float *x2, int a, int b, int c);
-void chitaem_1_koren(float *x1, int a, int b);
+int solve_the_equation(int a, int b, int c, float *x1, float *x2);
 
 
 int main() {
@@ -18,22 +16,20 @@ int main() {
     {
         if (comparison0(a) == 0) // если а не 0
         {
-            int kolvo_korney = proverka_na_kolvo_korney(a, b, c);
-            if (kolvo_korney == 2)
-            {
-                chitaem_2_kornya(&x1, &x2, a, b, c);
+            int number_of_roots = solve_the_equation(a,b,c, &x1, &x2); // запускаем функцию, считающую кол-во корней
+            if (number_of_roots == 2) //если 2 корня
                 printf("x1 = %f, x2 = %f\n", x1, x2);
-            }
-            else if (kolvo_korney == 0)
+            else if (number_of_roots == 1)  // если 1 корень
+                printf("x1 = %f\n", x1);
+            else // если 0 корней
+                printf("корней нет");
+        }
+        else { // случай, если а = 0
+            if (comparison0(b) == 1)
                 printf("корней нет");
             else
-            {
-                chitaem_1_koren(&x1, a, b);
-                printf("x1 = %f\n", x1);
-            }
+                printf("x1 = %f\n", -c / b);
         }
-        else
-            printf("это не квадратное уравнение");
     }
 }
 
@@ -45,24 +41,20 @@ int comparison0(int a) {
 }
 
 
-int proverka_na_kolvo_korney(int a, int b, int c) {
+int solve_the_equation(int a, int b, int c, float *x1, float *x2)
+{
     float discriminant;
     discriminant = b * b - 4 * a * c; // считаем дискриминант
     if (discriminant > 0) // если дискриминант больше 0
+    {
+        *x1 = (-b + sqrt(discriminant)) / (2 * a);
+        *x2 = (-b - sqrt(discriminant)) / (2 * a);
         return 2;
+    }
     else if (comparison0(discriminant) == 1) // если дискриминант 0
+    {
+        *x1 = -b / (2 * a);
         return 1;
+    }
     return 0;
-}
-
-
-void chitaem_2_kornya(float *x1, float *x2, int a, int b, int c) {
-    float discriminant = b * b - 4 * a * c;
-    *x1 = (-b + sqrt(discriminant)) / (2 * a);
-    *x2 = (-b - sqrt(discriminant)) / (2 * a);
-}
-
-
-void chitaem_1_koren(float *x1, int a, int b) {
-    *x1 = -b / (2 * a);
 }
