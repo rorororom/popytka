@@ -6,12 +6,12 @@
 
 int comparison0(int a); // проверка числа на равенство 0
 int solve_the_equation(float a, float b, float c, float *x1, float *x2);
-int solve_linear_r_the_equation(float b, float c, float **x1);
+int solve_linear_r_the_equation(float b, float c, float *x1);
 
 int main()
 {
     float a = 0, b = 0, c = 0, x1 = 0, x2 = 0;
-    if ((scanf("%f", &a)) != 1 || (scanf("%f", &b)) != 1 || (scanf("%f", &c)) != 1) // проверка на правильность ввода
+    if ((scanf("%f%f%f", &a, &b, &c)) != 1) // проверка на правильность ввода
         printf("Неверное введенное значение");
     else // если корректный ввод, то переходит к решению уравнения
     {
@@ -49,17 +49,17 @@ int solve_the_equation(float a, float b, float c, float *x1, float *x2)
         }
         return 0;
     }
-    else return solve_linear_r_the_equation(b, c, &x1); // случай, если а = 0
+    else return solve_linear_r_the_equation(b, c, x1); // случай, если а = 0
 }
 
 
-int solve_linear_r_the_equation(float b, float c, float **x1)
+int solve_linear_r_the_equation(float b, float c, float *x1)
 {
     if (comparison0(b) == 1 && comparison0(c) == 1) return ENUM;
     else if(comparison0(b) == 1) return 0;
     else
     {
-        **x1 = -c / b;
+        *x1 = -c / b;
         return 1;
     }
 }
