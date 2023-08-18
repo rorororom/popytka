@@ -54,16 +54,16 @@ int solve_the_equation(float a, float b, float c, float *x1, float *x2)
     if (comparison0(a) == 0) // если а не 0
     {
         float discriminant = b * b - 4 * a * c; // считаем дискриминант;
-        if (discriminant > 0) // если дискриминант больше 0
+        if (comparison0(discriminant) == 1) // если дискриминант 0
+        {
+            *x1 = -b / (2 * a);
+            return ONE_ROOTS;
+        }
+        else if (discriminant > 0) // если дискриминант больше 0
         {
             *x1 = (-b + sqrt(discriminant)) / (2 * a);
             *x2 = (-b - sqrt(discriminant)) / (2 * a);
             return TWO_ROOTS;
-        }
-        else if (comparison0(discriminant) == 1) // если дискриминант 0
-        {
-            *x1 = -b / (2 * a);
-            return ONE_ROOTS;
         }
         return NO_ROOTS;
     }
