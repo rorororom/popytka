@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <math.h>
 
+
 #define EPS 0.000001
 enum root{
     NO_ROOTS,
@@ -22,10 +23,21 @@ int main()
     else // если корректный ввод, то переходит к решению уравнения
     {
         int number_of_roots = solve_the_equation(a,b,c, &x1, &x2); // запускаем функцию, считающую кол-во корней
-        if (number_of_roots == TWO_ROOTS) printf("x1 = %f, x2 = %f\n", x1, x2); //если 2 корня
-        else if (number_of_roots == ONE_ROOTS) printf("x1 = %f\n", x1); // если 1 корень
-        else if (number_of_roots == NO_ROOTS) printf("корней нет"); // если 0 корней
-        else printf("бесконечное кол-во корней");
+        switch (number_of_roots)
+        {
+            case TWO_ROOTS:
+                printf("x1 = %f, x2 = %f\n", x1, x2); //если 2 корня
+                break;
+            case ONE_ROOTS:
+                printf("x1 = %f\n", x1); // если 1 корень
+                break;
+            case NO_ROOTS:
+                printf("корней нет"); // если 0 корней
+                break;
+            default:
+                printf("бесконечное кол-во корней");
+                break;
+        }
     }
 }
 
