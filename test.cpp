@@ -20,12 +20,12 @@ void test()
     struct coefficient coof = {0,0,0};
     struct roots expected_root = {0,0,0};
     struct roots roots = {0,0,0};
-    test_case(1,-6,9,3,3,2)
+    test_case(1,-6,9,3,3,1)
     test_case(0,0,0,0,0,3)
     test_case(0,0,1,0,0,0)
-    printf("%d\n", cnt_r);
-    // test_case({0,1,0}, {0,0,1})
-    // test_case({0,5,6}, {-1.2,0,1})
-    // test_case({1,0,0}, {0,0,1})
+    test_case(0,1,0,0,0,1)
+    test_case(0,5,6,-1.2,0,1)
+    test_case(1,0,0,0,0,1)
+    // printf("%d\n", cnt_r);
 
 }
