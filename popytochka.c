@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <math.h>
+#include <assert.h>
 
 
 #define EPS 0.000001
@@ -16,31 +17,38 @@ struct coefficient{
     float c;
 };
 
+struct roots{
+    float x1;
+    float x2;
+    int n;
+};
 
-int comparison0(int a);
-int solve_the_equation(float a, float b, float c, float *x1, float *x2);
-int solve_linear_the_equation(float b, float c, float *x1);
+
+int comparison0(float a);
+int solve_the_equation(coefficient coof , roots* root);
+int solve_linear_the_equation(coefficient coof , roots* root);
 
 int main()
 {
-    float a = 0, b = 0, c = 0, x1 = 0, x2 = 0;
-    if ((scanf("%f%f%f", &a, &b, &c)) != 3)
-        printf("Неверное введенное значение");
+    struct coefficient coof = {0,0,0};
+    printf("Enter the coefficients of the equation\n");
+    if ((scanf("%f%f%f", &coof.a, &coof.b, &coof.c)) != 3)
+    printf("Invalid value entered\n");
     else
     {
-        printf("kek0\n");
-        int nRoots = solve_the_equation(a,b,c, &x1, &x2);
-        switch (nRoots)
+        struct roots root = {0,0,0};
+        root.n = solve_the_equation(coof, &root);
+        switch (root.n)
         {
-            case TWO_ROOTS: printf("x1 = %f, x2 = %f\n", x1, x2);
+            case TWO_ROOTS: printf("x1 = %f, x2 = %f\n", root.x1, root.x2);
                 break;
-            case ONE_ROOTS: printf("x = %f\n", x1);
+            case ONE_ROOTS: printf("x = %f\n", root.x1);
                 break;
-            case NO_ROOTS: printf("корней нет");
+            case NO_ROOTS: printf("No roots\n");
                 break;
-            case INFINITY_ROOTS: printf("бесконечное кол-во корней");
+            case INFINITY_ROOTS: printf("Infinite number of roots\n");
                 break;
-            default: printf("");
+            default: printf("Something went wrong");
         }
     }
 }
@@ -53,40 +61,37 @@ int comparison0(float a)
 }
 
 
-int solve_the_equation(float a, float b, float c, float *x1, float *x2)
+int solve_the_equation(coefficient coof , roots* root)
 {
-    assert(x1 != NULL);
-    assert(x2 != NULL);
-    printf("kek1\n");
-    if (comparison0(a) == 0)
+    assert(root != NULL);
+    if (comparison0(coof.a) == 0)
     {
-        printf("kek2\n");
-        float discriminant = b * b - 4 * a * c;
+        float discriminant = coof.b * coof.b - 4 * coof.a * coof.c;
         if (comparison0(discriminant) == 1)
         {
-            printf("sg\n");
-            *x1 = -b / (2 * a);
+            root -> x1 = -coof.b / (2 * coof.a);
             return ONE_ROOTS;
         }
         else if (discriminant > 0)
         {
-            *x1 = (-b + sqrt(discriminant)) / (2 * a);
-            *x2 = (-b - sqrt(discriminant)) / (2 * a);
+            root -> x1 = (-coof.b + sqrt(discriminant)) / (2 * coof.a);
+            root -> x2 = (-coof.b - sqrt(discriminant)) / (2 * coof.a);
             return TWO_ROOTS;
         }
         return NO_ROOTS;
     }
-    else return solve_linear_the_equation(b, c, x1);
+    else return solve_linear_the_equation(coof, root);
 }
 
 
-int solve_linear_the_equation(float b, float c, float *x1)
+int solve_linear_the_equation(coefficient coof , roots* root)
 {
-    if (comparison0(b) == 1 && comparison0(c) == 1) return INFINITY_ROOTS;
-    else if(comparison0(b) == 1) return NO_ROOTS;
+    assert(root != NULL);
+    if (comparison0(coof.b) == 1 && comparison0(coof.c) == 1) return INFINITY_ROOTS;
+    else if(comparison0(coof.b) == 1) return NO_ROOTS;
     else
     {
-        *x1 = -c / b;
+        root -> x1 = -coof.c / coof.b;
         return ONE_ROOTS;
     }
 
