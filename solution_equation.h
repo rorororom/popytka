@@ -13,6 +13,7 @@ typedef struct roots
     int n;
 } roots;
 
+
 enum root
 {
     NO_ROOTS,
@@ -21,9 +22,10 @@ enum root
     INFINITY_ROOTS
 };
 
+
 int square_solver0(float a);
 void solve_equation(coefficient coof , roots* root);
 void solve_linear_equation(coefficient coof , roots* root);
-int square_solver(float a, float b);
+int float_equal(float a, float b);
 void user_input();
 

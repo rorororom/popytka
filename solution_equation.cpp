@@ -10,12 +10,12 @@ int square_solver0(float a)
 {
     return abs(a - 0) < EPS;
 }
-// float_cmp()
-int square_solver(float a, float b)
+
+
+int float_equal(float a, float b)
 {
     return (abs(a - b) < EPS);
 }
-
 
 
 void solve_equation(coefficient coof , roots* root)

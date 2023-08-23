@@ -2,9 +2,11 @@
 #include "colors.h"
 #include <stdio.h>
 
+
 #define dbg_printf(str)     \
     printf("Failed in function %s:%d\n", __PRETTY_FUNCTION__, __LINE__);\
     printf(str);
+
 
 void print_roots(struct roots root)
 {

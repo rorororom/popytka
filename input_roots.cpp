@@ -12,9 +12,8 @@ void input_roots(struct coefficient *coof)
     int verification = (scanf("%f%f%f", &coof->a, &coof->b, &coof->c));
     while (verification != 3)
     {
-        // getchar??
-        fflush(stdin);
         printf(COLOR_RED("Invalid value entered\n"));
+        while(getchar() != '\n');
         verification = (scanf("%f%f%f", &coof->a, &coof->b, &coof->c));
     }
 }

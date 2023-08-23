@@ -4,6 +4,7 @@
 #include "test.h"
 #include "colors.h"
 
+
 typedef struct TestCase
 {
     float a;
@@ -20,17 +21,18 @@ void test_work(struct TestCase test_cases, int i)
     roots answer = {0,0,0};
     coefficient coeff = {test_cases.a, test_cases.b, test_cases.c};
     solve_equation(coeff, &answer);
-    if (!(square_solver(test_cases.x1,answer.x1)
-       && square_solver(test_cases.x2,answer.x2)
-       && square_solver(test_cases.n,answer.n)))
-        printf(COLOR_RED("FAILD\n") "test %d, received data {%f, %f,%f}\n"
-                "expected data {%f, %f,%d}\n"
-                "answer {%f, %f,%d}\n\n", i+1, test_cases.a,test_cases.b,test_cases.c,
-                test_cases.x1,test_cases.x2,test_cases.n,
+    if (!(float_equal(test_cases.x1, answer.x1)
+       && float_equal(test_cases.x2, answer.x2)
+       && float_equal(test_cases.n, answer.n)))
+        printf(COLOR_RED("FAILD\n") "test %d, received data {%f, %f, %f}\n"
+                "expected data {%f, %f, %d}\n"
+                "answer {%f, %f, %d}\n\n", i+1, test_cases.a, test_cases.b, test_cases.c,
+                test_cases.x1, test_cases.x2, test_cases.n,
                 answer.x1, answer.x2, answer.n);
     else
         printf(COLOR_GREEN("OKEY") " test %d correct\n\n", i+1);
 }
+
 
 void test()
 {
