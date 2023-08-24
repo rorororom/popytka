@@ -15,6 +15,7 @@ void input_roots(struct coefficient *coof)
         while(getchar() != '\n')
             ;
         verification = scanf("%f%f%f", &coof->a, &coof->b, &coof->c);
+        
     }
 }
 

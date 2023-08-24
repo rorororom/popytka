@@ -17,6 +17,7 @@ typedef struct coefficient
  * @param x2 second root
  * @param n number of roots
  */
+ // replace with Roots
 typedef struct roots // replace with Roots
 {
     float x1;

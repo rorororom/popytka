@@ -3,6 +3,8 @@
 #include "solution_equation.h"
 #include "test.h"
 
+#include <stdio.h>
+
 int main()
 {
 #ifdef DO_TEST

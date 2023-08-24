@@ -1,6 +1,7 @@
 #include <stdio.h>
 
 #include "colors.h"
+#include "print_roots.h"
 #include "solution_equation.h"
 
 // do_while moment?
