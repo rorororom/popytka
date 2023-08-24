@@ -1,3 +1,6 @@
+// TODO: include guard
+
+// naming
 #define COLOR_NORMAL     "\x1B[0m"
 #define COLOR_RED(s)     "\x1B[31m" s "\x1B[0m"
 #define COLOR_GREEN(s)   "\x1B[32m" s "\x1B[0m"

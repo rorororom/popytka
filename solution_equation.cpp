@@ -1,25 +1,22 @@
-#include "solution_equation.h"
-#include <math.h>
 #include <assert.h>
+#include <math.h>
 #include <stdio.h>
 
+#include "solution_equation.h"
 
-#define EPS 0.000001
-
-
+// const
+double const EPS 0.000001
 
 int zero_equal(float a)
 {
     return abs(a - 0) < EPS;
 }
 
-
-
 int float_equal(float a, float b)
 {
-    return (abs(a - b) < EPS);
+    return zero_equal(a - b);
+    // return (abs(a - b) < EPS);
 }
-
 
 void solve_equation(coefficient coof , roots* root)
 {
@@ -35,16 +32,18 @@ void solve_equation(coefficient coof , roots* root)
         {
             root->x1 = -coof.b / (2 * coof.a);
             root->x2 = root -> x1;
-            root->n = ONE_ROOTS;
+            root->n = ONE_ROOT;
         }
         else if (discriminant > 0)
         {
-            root->x1 = (-coof.b + sqrt(discriminant)) / (2 * coof.a);
-            root->x2 = (-coof.b - sqrt(discriminant)) / (2 * coof.a);
+            int sqrtd = sqrt(discriminant);
+            float double_a = coof.a * 2.0f; //?
+            root->x1 = (-coof.b + sqrtd) / double_a;
+            root->x2 = (-coof.b - sqrtd) / double_a;
             root->n = TWO_ROOTS;
         }
         else
-            root->n = NO_ROOTS;
+            root->n = NO_ROOT;
     }
     else
     {
@@ -65,13 +64,13 @@ void solve_linear_equation(coefficient coof , roots* root)
     }
     else if (zero_equal(coof.b) == 1)
     {
-        root -> n = NO_ROOTS;
+        root -> n = NO_ROOT;
     }
     else
     {
         root -> x1 = -coof.c / coof.b;
         root -> x2 = root -> x1;
-        root -> n = ONE_ROOTS;
+        root -> n = ONE_ROOT;
     }
 
 }

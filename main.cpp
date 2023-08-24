@@ -1,8 +1,7 @@
-#include "solution_equation.h"
-#include "test.h"
 #include "input_roots.h"
 #include "print_roots.h"
-#include <stdio.h>
+#include "solution_equation.h"
+#include "test.h"
 
 int main()
 {
@@ -16,6 +15,7 @@ int main()
     print_roots(root);
 #endif
 }
+//ДОБАВИТЬ ЗАДАЧУ КОМПИЛИРУЮЩУЮ ДОКСИГЕН В МЭЙК
 
 
 

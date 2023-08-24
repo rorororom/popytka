@@ -1,0 +1,9 @@
+7
+infinite_roots 0 0 0 0 0 3
+two_roots 0.5 3 4 -2 -4 2
+one_roots 1 -6 9 3 3 1
+no_roots 0 0 1 0 0 0
+one_roots 0 1 0 0 0 1
+one_roots 0 5 -10 2 2 1
+two_roots 1 0 -4 2 -2 2
+
