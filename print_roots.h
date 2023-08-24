@@ -1,1 +1,1 @@
-void print_roots(struct roots root);
+void print_roots(roots root);

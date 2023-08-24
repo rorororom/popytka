@@ -4,7 +4,6 @@
 #include "colors.h"
 
 
-
 void input_roots(struct coefficient *coof)
 {
     printf("Solve quadratic equation\n");

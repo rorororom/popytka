@@ -1,15 +1,12 @@
 typedef struct coefficient
 {
-    float a;
-    float b;
-    float c;
+    float a, b, c;
 } coefficient;
 
 
 typedef struct roots
 {
-    float x1;
-    float x2;
+    float x1, x2;
     int n;
 } roots;
 
@@ -22,10 +19,30 @@ enum root
     INFINITY_ROOTS
 };
 
+//
+//! @brief function zero_equal compares a number with zero
+//! @param [in] a   a-number equal to zero
+//! @return true or false depending on whether the number is equal to zero
+//
+int zero_equal(float a);
 
-int square_solver0(float a);
+//
+//! @brief function solve_equation solves quadratic equation
+//! @param [in] a   a-number equal to zero
+//! @return true or false depending on whether the number is equal to zero
+//
 void solve_equation(coefficient coof , roots* root);
+
+
 void solve_linear_equation(coefficient coof , roots* root);
+
+//
+//! @brief function float_equal compares two floats (a,b)
+//! @param [in] a
+//! @param [in] b
+//! @return true or false depending on the equality of two floats
+//
 int float_equal(float a, float b);
-void user_input();
+
+
 

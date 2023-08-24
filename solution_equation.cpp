@@ -1,15 +1,18 @@
 #include "solution_equation.h"
 #include <math.h>
 #include <assert.h>
+#include <stdio.h>
 
 
 #define EPS 0.000001
 
 
-int square_solver0(float a)
+
+int zero_equal(float a)
 {
     return abs(a - 0) < EPS;
 }
+
 
 
 int float_equal(float a, float b)
@@ -25,10 +28,10 @@ void solve_equation(coefficient coof , roots* root)
     assert(isfinite(coof.b));
     assert(isfinite(coof.c));
 
-    if (!square_solver0(coof.a))
+    if (!zero_equal(coof.a))
     {
         float discriminant = coof.b * coof.b - 4 * coof.a * coof.c;
-        if (square_solver0(discriminant))
+        if (zero_equal(discriminant))
         {
             root->x1 = -coof.b / (2 * coof.a);
             root->x2 = root -> x1;
@@ -56,11 +59,11 @@ void solve_linear_equation(coefficient coof , roots* root)
     assert(isfinite(coof.c));
     assert(isfinite(coof.b));
 
-    if (square_solver0(coof.b) && square_solver0(coof.c) )
+    if (zero_equal(coof.b) && zero_equal(coof.c) )
     {
         root -> n = INFINITY_ROOTS;
     }
-    else if (square_solver0(coof.b) == 1)
+    else if (zero_equal(coof.b) == 1)
     {
         root -> n = NO_ROOTS;
     }

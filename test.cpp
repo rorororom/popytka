@@ -7,16 +7,12 @@
 
 typedef struct TestCase
 {
-    float a;
-    float b;
-    float c;
-    float x1;
-    float x2;
+    float a, b, c, x1, x2;
     int n;
 } TestCase;
 
 
-void test_work(struct TestCase test_cases, int i)
+void test_work(TestCase test_cases, int i)
 {
     roots answer = {0,0,0};
     coefficient coeff = {test_cases.a, test_cases.b, test_cases.c};
@@ -32,7 +28,6 @@ void test_work(struct TestCase test_cases, int i)
     else
         printf(COLOR_GREEN("OKEY") " test %d correct\n\n", i+1);
 }
-
 
 void test()
 {
