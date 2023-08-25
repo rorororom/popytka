@@ -3,8 +3,6 @@
 #include "solution_equation.h"
 #include "test.h"
 
-#include <stdio.h>
-
 int main()
 {
 #ifdef DO_TEST
@@ -17,7 +15,7 @@ int main()
     print_roots(root);
 #endif
 }
-//ДОБАВИТЬ ЗАДАЧУ КОМПИЛИРУЮЩУЮ ДОКСИГЕН В МЭЙК
+
 
 
 

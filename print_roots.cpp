@@ -4,18 +4,14 @@
 #include "print_roots.h"
 #include "solution_equation.h"
 
-// do_while moment?
-// caps
-#define dbg_printf(str)                                                      \
-    printf("Failed in function %s:%d\n", __PRETTY_FUNCTION__, __LINE__);     \
-    printf(str);
-
-#define TEST_do_WHILE(str) \
-    do { str } while(0)
+#define dbg_printf(str)                                                          \
+    do {                                                                         \
+        printf("Failed in function %s:%d\n", __PRETTY_FUNCTION__, __LINE__);     \
+        printf(str);                                                             \
+    } while (0)
 
 void print_roots(roots root)
 {
-    // TEST_do_WHILE(printf("test") ;);
     switch (root.n)
     {
         case TWO_ROOTS: {
@@ -23,11 +19,11 @@ void print_roots(roots root)
             break;
         }
 
-        case ONE_ROOTS:
+        case ONE_ROOT:
             printf(COLOR_MAGENTA("x = %f\n"), root.x1);
             break;
 
-        case NO_ROOTS:
+        case NO_ROOT:
             printf(COLOR_MAGENTA("No roots\n"));
             break;
 
@@ -36,7 +32,7 @@ void print_roots(roots root)
             break;
 
         default:
-            dbg_printf("Wrong amount of roots\n")
+            dbg_printf("Wrong amount of roots\n");
             break;
     }
 }

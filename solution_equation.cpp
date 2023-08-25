@@ -4,8 +4,7 @@
 
 #include "solution_equation.h"
 
-// const
-double const EPS 0.000001
+float const EPS = 0.000001;
 
 int zero_equal(float a)
 {
@@ -15,7 +14,6 @@ int zero_equal(float a)
 int float_equal(float a, float b)
 {
     return zero_equal(a - b);
-    // return (abs(a - b) < EPS);
 }
 
 void solve_equation(coefficient coof , roots* root)
@@ -36,10 +34,10 @@ void solve_equation(coefficient coof , roots* root)
         }
         else if (discriminant > 0)
         {
-            int sqrtd = sqrt(discriminant);
-            float double_a = coof.a * 2.0f; //?
-            root->x1 = (-coof.b + sqrtd) / double_a;
-            root->x2 = (-coof.b - sqrtd) / double_a;
+            float sqrtd = sqrt(discriminant);
+            float denominator = 2 * coof.a;
+            root->x1 = (-coof.b + sqrtd) / denominator;
+            root->x2 = (-coof.b - sqrtd) / denominator;
             root->n = TWO_ROOTS;
         }
         else
