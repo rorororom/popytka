@@ -25,7 +25,9 @@ typedef struct TestCase
 void test_work(TestCase test_cases, int i)
 {
     roots answer = {0,0,0};
-    coefficient coeff = {test_cases.coefficient.a, test_cases.coefficient.b, test_cases.coefficient.c};
+    coefficient coeff = {test_cases.coefficient.a,
+                         test_cases.coefficient.b,
+                         test_cases.coefficient.c};
 
     solve_equation(coeff, &answer);
     if (!(float_equal(test_cases.roots.x1, answer.x1)
@@ -36,10 +38,11 @@ void test_work(TestCase test_cases, int i)
         printf(COLOR_RED("FAILED ") "test " COLOR_CYAN("%s ")"%d\n"
                 COLOR_YELLOW("received data ") "{ %f,  %f, %f}\n"
                 COLOR_YELLOW("expected data ") "{ %f,  %f,        %d}\n"
-                COLOR_YELLOW("answer        ") "{%f, %f,        %d}\n\n", test_cases.str, i+1,
-                test_cases.coefficient.a, test_cases.coefficient.b, test_cases.coefficient.c,
-                test_cases.roots.x1, test_cases.roots.x2, test_cases.roots.n,
-                answer.x1, answer.x2, answer.n);
+                COLOR_YELLOW("answer        ") "{%f, %f,        %d}\n\n",
+                test_cases.str, i+1,test_cases.coefficient.a,
+                test_cases.coefficient.b, test_cases.coefficient.c,
+                test_cases.roots.x1, test_cases.roots.x2,
+                test_cases.roots.n, answer.x1, answer.x2, answer.n);
     }
 
     else
@@ -62,7 +65,8 @@ void test()
         if (fscanf(TestFile, "%s %f %f %f %f %f %d",
                    &test_case.str, &test_case.coefficient.a,
                    &test_case.coefficient.b, &test_case.coefficient.c,
-                   &test_case.roots.x1, &test_case.roots.x2, &test_case.roots.n) == 7)
+                   &test_case.roots.x1, &test_case.roots.x2,
+                   &test_case.roots.n) == 7)
         {
             test_work(test_case, i);
         }
