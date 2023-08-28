@@ -2,6 +2,14 @@
 
 ##### In this project I created a program that solves a quadratic equation
 
+### 0. Program launch
+______
+#define dbg_printf(str)                                                          \
+    do {                                                                         \
+        printf("Failed in function %s:%d\n", __PRETTY_FUNCTION__, __LINE__);     \
+        printf(str);                                                             \
+    } while (0)
+
 ### 1. Program test
 ______
 #### The project folder contains a file with tests. The program reads data from the file and solves the equation.
