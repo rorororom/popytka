@@ -1,4 +1,5 @@
-
+#ifndef TEST_H
+#define TEST_H
 //
 //! @brief contains a file with tests and their execution
 //!
@@ -15,3 +16,4 @@ void test();
 //! The function receives a structure of coefficients and estimated roots, runs the solve_equation function, which returns the estimated roots. Next, the function compares the values ​​of the estimated roots and the roots that the solve_equation function outputs.
 
 void test_work(char test_case[], int i);
+#endif 

@@ -1,3 +1,6 @@
+#ifndef SOLUTION_EQUATION_H
+#define SOLUTION_EQUATION_H
+
 /**
  * @brief equation coefficients
  * @param a coefficient at x^2
@@ -17,24 +20,20 @@ typedef struct coefficient
  * @param x2 second root
  * @param n number of roots
  */
- // replace with Roots
-typedef struct roots // replace with Roots
+typedef struct roots
 {
     float x1;
     float x2;
     int n;
 } roots;
 
-
-enum root // wtf???? neponyatno!
+enum root
 {
-    NO_ROOT, ///< no_roots???!!!??!!!!
+    NO_ROOT,
     ONE_ROOT,
     TWO_ROOTS,
     INFINITY_ROOTS
 };
-
-
 
 //
 //! @brief compares a number with zero
@@ -42,8 +41,6 @@ enum root // wtf???? neponyatno!
 //! @return True or false depending on whether the number is equal to zero
 //
 int zero_equal(float a);
-
-
 
 //
 //! @brief calculates a quadratic equation
@@ -55,8 +52,6 @@ int zero_equal(float a);
 //! The function receives a structure of coefficients and estimated roots, runs the solve_equation function, which returns the estimated roots. Next, the function compares the values ​​of the estimated roots and the roots that the solve_equation function outputs.
 void solve_equation(coefficient coof , roots* root);
 
-
-
 //
 //! @brief calculates a linear equation
 //! @param [in] coof these are the coefficients of the equation
@@ -66,8 +61,6 @@ void solve_equation(coefficient coof , roots* root);
 //! The function receives a structure of coefficients and estimated roots, runs the solve_equation function, which returns the estimated roots. Next, the function compares the values ​​of the estimated roots and the roots that the solve_equation function outputs.
 void solve_linear_equation(coefficient coof , roots* root);
 
-
-
 //
 //! @brief compares two floats
 //! @param [in] a first number to compare
@@ -76,6 +69,8 @@ void solve_linear_equation(coefficient coof , roots* root);
 //! @return True or false depending on the equality of two floats
 //
 int float_equal(float a, float b);
+
+#endif 
 
 
 
