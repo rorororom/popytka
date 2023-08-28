@@ -3,12 +3,28 @@
 ##### In this project I created a program that solves a quadratic equation
 
 ### 0. Program launch
-______
-#define dbg_printf(str)                                                          \
-    do {                                                                         \
-        printf("Failed in function %s:%d\n", __PRETTY_FUNCTION__, __LINE__);     \
-        printf(str);                                                             \
-    } while (0)
+#### To run the program in the terminal you need to write:
+```
+make all
+```
+#### Further
+```
+./main.out
+```
+#### There are 2 options for the program: test or user
+### 0.1 Option - TEST
+________
+```
+options = -DDO_TEST
+
+.......
+```
+### 0.2 Optoin - USER
+```
+#options = -DDO_TEST
+
+.......
+```
 
 ### 1. Program test
 ______
