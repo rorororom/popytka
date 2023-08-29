@@ -9,17 +9,21 @@
 typedef struct TestCase
 {
     static const unsigned int LEN = 128;
+
     char str[LEN];
+
     struct {
 		float a;
         float b;
         float c;
 	} coefficient;
+
     struct {
         float x1;
         float x2;
         int n;
 	} roots;
+
 } TestCase;
 
 void test_work(TestCase test_cases, int i)
@@ -39,10 +43,18 @@ void test_work(TestCase test_cases, int i)
                 COLOR_YELLOW("received data ") "{ %f,  %f, %f}\n"
                 COLOR_YELLOW("expected data ") "{ %f,  %f,        %d}\n"
                 COLOR_YELLOW("answer        ") "{%f, %f,        %d}\n\n",
-                test_cases.str, i+1,test_cases.coefficient.a,
-                test_cases.coefficient.b, test_cases.coefficient.c,
-                test_cases.roots.x1, test_cases.roots.x2,
-                test_cases.roots.n, answer.x1, answer.x2, answer.n);
+
+                test_cases.str, i+1,
+
+                test_cases.coefficient.a,
+                test_cases.coefficient.b,
+                test_cases.coefficient.c,
+
+                test_cases.roots.x1,
+                test_cases.roots.x2,
+                test_cases.roots.n,
+
+                answer.x1, answer.x2, answer.n);
     }
 
     else
@@ -53,13 +65,21 @@ void test_work(TestCase test_cases, int i)
     }
 }
 
+//--------------------------------------------------------------------------------
+
 void test()
 {
     FILE *TestFile = fopen("test.txt", "r");
-    TestCase test_case;
-    assert(TestFile);
+    if (! (TestFile)) // return
+    {
+        printf ("File not found");
+        return;
+    }
+    TestCase test_case = {};
+
     int n = 0;
     fscanf(TestFile, "%d", &n);
+
     for (int i = 0; i < n; i++)
     {
         if (fscanf(TestFile, "%s %f %f %f %f %f %d",
