@@ -1,1 +1,1 @@
-void input_validation (struct coefficient *coof);
+void input_validation (struct  coefficients *coof);

@@ -4,7 +4,7 @@
 #include "input_validation.h"
 #include "solution_equation.h"
 
-void input_validation (struct coefficient *coof)
+void input_validation (struct  coefficients *coof)
 {
     int verification = scanf ("%f%f%f", &coof->a, &coof->b, &coof->c);
 
@@ -12,7 +12,7 @@ void input_validation (struct coefficient *coof)
     {
         printf (COLOR_RED ("Invalid value entered\n"));
         int n = 0;
-        
+
         do {
             n = getchar ();
         } while (n != '\n' && n != EOF);

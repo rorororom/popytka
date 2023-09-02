@@ -9,7 +9,7 @@ int main ()
     test ();
 #else
     roots root = {};
-    coefficient coof = {};
+     coefficients coof = {};
 
     input_roots (&coof);
     solve_equation (coof, &root);

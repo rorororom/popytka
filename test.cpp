@@ -16,7 +16,7 @@ typedef struct TestCase
 		float a;
         float b;
         float c;
-	} coefficient;
+	}  coefficients;
 
     struct {
         float x1;
@@ -29,9 +29,9 @@ typedef struct TestCase
 void test_work (TestCase test_cases, int i)
 {
     roots answer = {0,0,0};
-    coefficient coeff = {test_cases.coefficient.a,
-                         test_cases.coefficient.b,
-                         test_cases.coefficient.c};
+     coefficients coeff = {test_cases. coefficients.a,
+                         test_cases. coefficients.b,
+                         test_cases. coefficients.c};
 
     solve_equation (coeff, &answer);
     if (! (float_equal (test_cases.roots.x1, answer.x1)
@@ -46,9 +46,9 @@ void test_work (TestCase test_cases, int i)
 
                 test_cases.str, i+1,
 
-                test_cases.coefficient.a,
-                test_cases.coefficient.b,
-                test_cases.coefficient.c,
+                test_cases. coefficients.a,
+                test_cases. coefficients.b,
+                test_cases. coefficients.c,
 
                 test_cases.roots.x1,
                 test_cases.roots.x2,
@@ -83,8 +83,8 @@ void test ()
     for (int i = 0; i < n; i++)
     {
         if (fscanf (TestFile, "%s %f %f %f %f %f %d",
-                   &test_case.str, &test_case.coefficient.a,
-                   &test_case.coefficient.b, &test_case.coefficient.c,
+                   &test_case.str, &test_case. coefficients.a,
+                   &test_case. coefficients.b, &test_case. coefficients.c,
                    &test_case.roots.x1, &test_case.roots.x2,
                    &test_case.roots.n) == 7)
         {

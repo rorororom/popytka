@@ -18,7 +18,7 @@ int float_equal (float a, float b)
 
 //---------------------------------------------------------------------------------------
 
-void solve_equation (coefficient coof , roots* root)
+void solve_equation ( coefficients coof , roots* root)
 {
     assert (root != NULL);
     assert (isfinite (coof.a));
@@ -54,7 +54,7 @@ void solve_equation (coefficient coof , roots* root)
 
 //---------------------------------------------------------------------------------------
 
-void solve_linear_equation (coefficient coof , roots* root)
+void solve_linear_equation ( coefficients coof , roots* root)
 {
     assert (root != NULL);
     assert (isfinite (coof.c));

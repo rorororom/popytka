@@ -2,20 +2,20 @@
 #define SOLUTION_EQUATION_H
 
 /**
- * @brief equation coefficients
- * @param a coefficient at x^2
- * @param b coefficient at x
- * @param c coefficient with x
+ * @brief equation  coefficientss
+ * @param a  coefficients at x^2
+ * @param b  coefficients at x
+ * @param c  coefficients with x
  */
-typedef struct coefficient
+typedef struct  coefficients
 {
     float a;
     float b;
     float c;
-} coefficient;
+}  coefficients;
 
 /**
- * @brief roots coefficients
+ * @brief roots  coefficientss
  * @param x1 first root
  * @param x2 second root
  * @param n number of roots
@@ -44,22 +44,22 @@ int zero_equal (float a);
 
 //
 //! @brief calculates a quadratic equation
-//! @param[in] coof these are the coefficients of the equation
+//! @param[in] coof these are the  coefficientss of the equation
 //! @param[in,out] root these are the roots of the equation, which, when solved, will be obtained and rewritten
 //!
 //! @attention If a = 0, then the solve_linear_equation is called
 //!
-//! The function receives a structure of coefficients and estimated roots, runs the solve_equation function, which returns the estimated roots. Next, the function compares the values ​​of the estimated roots and the roots that the solve_equation function outputs.
-void solve_equation (coefficient coof , roots* root);
+//! The function receives a structure of  coefficientss and estimated roots, runs the solve_equation function, which returns the estimated roots. Next, the function compares the values ​​of the estimated roots and the roots that the solve_equation function outputs.
+void solve_equation ( coefficients coof , roots* root);
 
 //
 //! @brief calculates a linear equation
-//! @param [in] coof these are the coefficients of the equation
+//! @param [in] coof these are the  coefficientss of the equation
 //! @param [in,out] root these are the roots of the equation, which, when solved, will be obtained and rewritten
 //!
 //!
-//! The function receives a structure of coefficients and estimated roots, runs the solve_equation function, which returns the estimated roots. Next, the function compares the values ​​of the estimated roots and the roots that the solve_equation function outputs.
-void solve_linear_equation (coefficient coof , roots* root);
+//! The function receives a structure of  coefficientss and estimated roots, runs the solve_equation function, which returns the estimated roots. Next, the function compares the values ​​of the estimated roots and the roots that the solve_equation function outputs.
+void solve_linear_equation ( coefficients coof , roots* root);
 
 //
 //! @brief compares two floats

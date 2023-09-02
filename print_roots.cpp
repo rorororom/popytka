@@ -4,7 +4,7 @@
 #include "print_roots.h"
 #include "solution_equation.h"
 
-#define dbg_printf (str)                                                          \
+#define dbg_printf(str)                                                          \
     do {                                                                          \
         printf ("Failed in function %s:%d\n", __PRETTY_FUNCTION__, __LINE__);     \
         printf (str);                                                             \

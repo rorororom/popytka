@@ -5,20 +5,20 @@ CXX_FLAGS = -D _DEBUG -ggdb3 -std=c++17 -O0 -Wall -Wextra -Weffc++ -Wc++14-compa
 TARGET = main.out
 
 main.out: main.o solution_equation.o test.o input_roots.o print_roots.o input_validation.o
-	g++ $ (CXX_FLAGS) main.o solution_equation.o test.o input_roots.o print_roots.o input_validation.o -o main.out
+	g++ $(CXX_FLAGS) main.o solution_equation.o test.o input_roots.o print_roots.o input_validation.o -o main.out
 
 main.o: main.cpp Makefile
-	g++ $ (CXX_FLAGS) $ (options) -c main.cpp -o main.o
+	g++ $(CXX_FLAGS) $(options) -c main.cpp -o main.o
 functions.o: solution_equation.cpp
-	g++ $ (CXX_FLAGS) -c solution_equation.cpp -o solution_equation.o
+	g++ $(CXX_FLAGS) -c solution_equation.cpp -o solution_equation.o
 test.o: test.cpp
-	g++ $ (CXX_FLAGS) -c test.cpp -o test.o
+	g++ $(CXX_FLAGS) -c test.cpp -o test.o
 input_roots.o: input_roots.cpp
-	g++ $ (CXX_FLAGS) -c input_roots.cpp -o input_roots.o
+	g++ $(CXX_FLAGS) -c input_roots.cpp -o input_roots.o
 print_roots.o: print_roots.cpp
-	g++ $ (CXX_FLAGS) -c print_roots.cpp -o print_roots.o
+	g++ $(CXX_FLAGS) -c print_roots.cpp -o print_roots.o
 input_validation.o: input_validation.cpp
-	g++ $ (CXX_FLAGS) -c input_validation.cpp -o input_validation.o
+	g++ $(CXX_FLAGS) -c input_validation.cpp -o input_validation.o
 
 .PHONY: doxygen
 doxygen:
