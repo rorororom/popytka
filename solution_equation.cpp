@@ -20,10 +20,9 @@ int float_equal (float a, float b)
 
 void solve_equation ( coefficients coof , roots* root)
 {
-    assert (root != NULL);
-    assert (isfinite (coof.a));
-    assert (isfinite (coof.b));
-    assert (isfinite (coof.c));
+    if (root == NULL) return;
+    if (!isfinite(coof.a) && !isfinite(coof.b) && !isfinite(coof.c)) return;
+
 
     if (!zero_equal (coof.a))
     {
@@ -56,9 +55,8 @@ void solve_equation ( coefficients coof , roots* root)
 
 void solve_linear_equation ( coefficients coof , roots* root)
 {
-    assert (root != NULL);
-    assert (isfinite (coof.c));
-    assert (isfinite (coof.b));
+    if (root == NULL) return;
+    if (!isfinite(coof.b) && !isfinite(coof.c)) return;
 
     if (zero_equal (coof.b) && zero_equal (coof.c) )
     {
