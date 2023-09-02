@@ -52,6 +52,7 @@ void solve_equation (coefficient coof , roots* root)
     }
 }
 
+//---------------------------------------------------------------------------------------
 
 void solve_linear_equation (coefficient coof , roots* root)
 {
@@ -73,5 +74,4 @@ void solve_linear_equation (coefficient coof , roots* root)
         root -> x2 = root -> x1;
         root -> n = ONE_ROOT;
     }
-
 }

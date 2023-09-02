@@ -2,24 +2,14 @@
 
 #include "colors.h"
 #include "input_roots.h"
+#include "input_validation.h"
 #include "solution_equation.h"
 
-void input_roots(struct coefficient *coof)
+void input_roots (struct coefficient *coof)
 {
-    printf(COLOR_YELLOW("Solve quadratic equation\n"));
-    printf(COLOR_GREEN("Enter the coefficients of the equation\n"));
+    printf (COLOR_YELLOW ("Solve quadratic equation\n"));
+    printf (COLOR_GREEN ("Enter the coefficients of the equation\n"));
 
-    int verification = scanf("%f%f%f", &coof->a, &coof->b, &coof->c);
-    
-    while (verification != 3)
-    {
-        printf(COLOR_RED("Invalid value entered\n"));
-
-        while(getchar() != '\n') // EOF
-            ;
-
-        verification = scanf("%f%f%f", &coof->a, &coof->b, &coof->c);
-
-    }
+    input_validation (coof);
 }
 

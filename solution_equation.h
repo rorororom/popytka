@@ -40,7 +40,7 @@ enum root
 //! @param [in] a   number equal to zero
 //! @return True or false depending on whether the number is equal to zero
 //
-int zero_equal(float a);
+int zero_equal (float a);
 
 //
 //! @brief calculates a quadratic equation
@@ -50,7 +50,7 @@ int zero_equal(float a);
 //! @attention If a = 0, then the solve_linear_equation is called
 //!
 //! The function receives a structure of coefficients and estimated roots, runs the solve_equation function, which returns the estimated roots. Next, the function compares the values ​​of the estimated roots and the roots that the solve_equation function outputs.
-void solve_equation(coefficient coof , roots* root);
+void solve_equation (coefficient coof , roots* root);
 
 //
 //! @brief calculates a linear equation
@@ -59,7 +59,7 @@ void solve_equation(coefficient coof , roots* root);
 //!
 //!
 //! The function receives a structure of coefficients and estimated roots, runs the solve_equation function, which returns the estimated roots. Next, the function compares the values ​​of the estimated roots and the roots that the solve_equation function outputs.
-void solve_linear_equation(coefficient coof , roots* root);
+void solve_linear_equation (coefficient coof , roots* root);
 
 //
 //! @brief compares two floats
@@ -68,9 +68,9 @@ void solve_linear_equation(coefficient coof , roots* root);
 //!
 //! @return True or false depending on the equality of two floats
 //
-int float_equal(float a, float b);
+int float_equal (float a, float b);
 
-#endif 
+#endif
 
 
 

@@ -3,14 +3,14 @@
 #include "solution_equation.h"
 #include "test.h"
 
-int main()
+int main ()
 {
 #ifdef DO_TEST
-    test();
+    test ();
 #else
     roots root = {};
     coefficient coof = {};
-    
+
     input_roots (&coof);
     solve_equation (coof, &root);
     print_roots (root);
